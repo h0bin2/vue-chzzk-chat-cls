@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'tossFont';
+    src: url('./Moneygraphy-Rounded.ttf') format('truetype');
+  }
+  
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'tossFont', sans-serif;
+  color: white;
+  height: 100%;
+}
