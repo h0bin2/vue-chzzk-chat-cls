@@ -16,12 +16,10 @@ export default {
 <style scoped>
 .routeStudio {
     padding-top: 50px;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 80px);
 
     display: flex;
     transform: translateY(10px);
 
-    width: 90%;
-    height: 100vh;
-}
+    width: 90%;}
 </style>

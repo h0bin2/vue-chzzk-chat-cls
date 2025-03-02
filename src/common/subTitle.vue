@@ -1,11 +1,12 @@
 <template>
-    <span v-text="title"></span>
+    <span v-text="title" :style="{'font-size': fontWeight + 'px'}"></span>
 </template>
 <script>
 export default {
     name:'subTitle',
     props:[
-        'title'
+        'title',
+        'fontWeight'
     ]
 }
 </script>
