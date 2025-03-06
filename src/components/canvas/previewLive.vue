@@ -1,13 +1,13 @@
 <template>
     <div class="previewLiveBox">
-        <img src="@/assets/169preview.jpeg" alt="">
+        <img :src="localChannel.liveImageUrl" alt="">
         <div class="infoLive">
             <div class="strmImg">
-                <img src="@/assets/strmTest.jpg" alt="">
+                <img :src="localChannel.channel.channelImageUrl" alt="">
             </div>
             <div class="strmTitle">
-                <span class="title">이강원의 라이브방송</span>
-                <span class="strmName">이강원</span>
+                <span class="title">{{localChannel.liveTitle}}</span>
+                <span class="strmName">{{localChannel.channel.channelName}}</span>
             </div>
         </div>
     </div>
@@ -15,9 +15,25 @@
 <script>
 export default {
     name:'previewLive',
-    props:[
-        
-    ]
+    props:{
+        data: {
+            type: Object,
+            required: true
+        }
+    },
+    data(){
+        return {
+            localChannel: this.data
+        }
+    },
+    methods:{
+        replaceImageUrl(){ 
+            this.localChannel.liveImageUrl = this.data.liveImageUrl.replace('{type}', '480');
+        }
+    },
+    mounted(){
+        this.replaceImageUrl();
+    }
 }
 </script>
 <style scoped>
@@ -30,12 +46,14 @@ export default {
     .previewLiveBox > img {
         width: 100%;
         border-radius: 20px;
+
+        border: 1px solid gray;
     }
 
     .infoLive {
         display: flex;
         height: 50px;
-        margin-top: 5px;
+        margin-top: 10px;
         align-items: center;
     }
 
@@ -73,7 +91,7 @@ export default {
     .infoLive {
         display: flex;
         height: 50px;
-        margin-top: 5px;
+        margin-top: 10px;
         align-items: center;
     }
 

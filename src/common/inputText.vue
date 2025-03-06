@@ -17,6 +17,6 @@ input {
     border: 0px;
 
     width: 88%;
-    height: 90%;
+    height: 80%;
 }
 </style>

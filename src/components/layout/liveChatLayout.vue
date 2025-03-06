@@ -11,10 +11,10 @@ export default {
 <style scoped>
 .previewChat {
     width: auto;
-    height: 100px;
+    height: 370px;
     display: flex;
 
-    margin: 10px 20px;
+    margin: 10px 50px;
     border-radius: 10px;    
     background-color: gray;
 }
