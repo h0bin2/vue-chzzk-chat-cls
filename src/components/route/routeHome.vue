@@ -67,6 +67,7 @@ export default {
 <style scoped>
 .routeHome {
     padding-top: 50px;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 50px);
+    width: 100%;
 }
 </style>

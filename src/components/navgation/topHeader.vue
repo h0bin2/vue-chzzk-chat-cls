@@ -51,7 +51,7 @@ export default {
 </script>
 <style scoped>
 #header {
-    padding: 10px 0px;
+    padding: 5px 0px 5px 0px;
 
     display: flex;
     justify-content: center;
@@ -63,6 +63,7 @@ export default {
     position: fixed;
     top:0;
     width: 100%;
+    height: 40px;
 }
 
 #home {
@@ -123,11 +124,12 @@ export default {
 }
 
 .auth > a {
-    padding: 3px 5px 3px 5px;
+    padding: 10px 8px 10px 8px;
+    border-radius: 5px;
 }
 
 .auth > a:hover{
-    background-color: #202020;
+    background-color: grey;
 }
 
 @media screen and (min-width: 800px) {

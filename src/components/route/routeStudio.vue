@@ -16,9 +16,9 @@ export default {
 <style scoped>
 .routeStudio {
     padding-top: 50px;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 50px);
 
-    margin: 0px 50px 0px 50px;
+    margin: 0px 60px 0px 50px;
     width: 100%;
 }   
 </style>

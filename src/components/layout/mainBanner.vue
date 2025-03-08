@@ -14,7 +14,7 @@ export default {
     height: 370px;
     display: flex;
 
-    margin: 20px 50px 25px 60px;
+    margin: 0px 50px 25px 60px;
     border-radius: 20px;    
     background-color: gray;
 }
