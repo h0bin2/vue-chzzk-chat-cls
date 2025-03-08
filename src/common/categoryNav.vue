@@ -1,16 +1,23 @@
 <template>
     <ul class="navigation">
-        <li><a class="selectTag" href="#">홈</a></li>
-        <li><a href="#">분석</a></li>
-        <li><a href="#">하이라이트</a></li>
-        <li><a href="#">생성형AI</a></li>
+        <li v-for="(item, index) in category" :key='index'>
+            <a :class="{'selectTag': index === 0}" :href="'/studio/'+ studioId + '/' + index">{{item}}</a>
+        </li>
     </ul>
 </template>
 <script>
 export default {
     name:"categoryNav",
-    methods:{
-        
+    data(){
+        return{
+            category:[
+                '홈',
+                '채팅 분석',
+                '하이라이트 분석',
+                '인공지능'
+            ],
+            studioId:this.$route.params.studioId
+        } 
     }
 }
 </script>

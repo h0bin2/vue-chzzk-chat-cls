@@ -1,29 +1,65 @@
 <template>
     <div class="routeHome">
-        <liveChatLayout></liveChatLayout>
-        <liveGridLayout></liveGridLayout>
+        <mainBanner></mainBanner>
+        <liveGridLayout :globalChzzkLiveList='globalChzzkLiveList'></liveGridLayout>
     </div>
 </template>
 <script>
 import liveGridLayout from '@/components/layout/liveGridLayout.vue';
-import liveChatLayout from '@/components/layout/liveChatLayout.vue';
+import mainBanner from '@/components/layout/mainBanner.vue';
+
 export default {
     name:'routeHome',
     components:{
         liveGridLayout,
-        liveChatLayout
+        mainBanner
     },
     data(){
         return {
-            top20LiveList:{}
+            globalChzzkLiveList:{},
         }
     },
-    created(){
-        this.loadTop20LiveList();
+    mounted(){
+        this.loadChzzkLiveTop20();
+        this.loadLoggedUserInfo();
     },
     methods:{
-        async loadTop20LiveList(){
-            console.log('top20 방송 가져오기');
+        async loadChzzkLiveTop20(){
+            try{
+                const response = await fetch('/chzzk/popular', {
+                    methods:'GET',
+                    headers:{
+                        'Content-Type':'application/json'
+                    }
+                });
+
+                const res = await response.json();
+
+                if (res['status_code'] == 200) {
+                    this.globalChzzkLiveList = res['content']['data'];
+                }
+
+                return ;
+            } catch{
+                alert("인기방송 불러오기 실패");
+            }
+        },
+        async loadLoggedUserInfo(){
+            try {
+                const response = await fetch('/user/session',{
+                    credentials: 'include',
+                    method: 'GET',
+                    headers:{
+                        'Content-Type':'application/json'
+                    }
+                });
+
+                const res = await response.json();
+
+                this.$store.dispatch('login', res.content);
+            }catch{
+                console.log('error');
+            }
         }
     }
 }

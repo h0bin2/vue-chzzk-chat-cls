@@ -19,7 +19,7 @@ export default {
             required: true
         },
         isOnline: {
-            type:Boolean
+            type:String
         }
     },
     computed:{

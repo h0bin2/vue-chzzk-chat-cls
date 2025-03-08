@@ -11,12 +11,12 @@ input {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowarp;
-
+    
     background-color: #141517;
     color: white;
     border: 0px;
 
-    width: 88%;
+    width: 290px;
     height: 80%;
 }
 </style>

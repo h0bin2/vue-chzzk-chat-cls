@@ -1,9 +1,13 @@
 <template>
     <div class="previewLiveBox">
-        <img :src="localChannel.liveImageUrl" alt="">
+        <a :href="'https://chzzk.naver.com/live/' + localChannel.channel.channelId">
+            <img v-if="localChannel.liveImageUrl !== '' && localChannel.adult == false" :src="localChannel.liveImageUrl" alt="">
+            <img v-else src="@/assets/adult19.jpg">
+        </a>
         <div class="infoLive">
             <div class="strmImg">
-                <img :src="localChannel.channel.channelImageUrl" alt="">
+                <img v-if="localChannel.channel.channelImageUrl !== ''" :src="localChannel.channel.channelImageUrl" alt="">
+                <img v-else src="@/assets/anonymous.png">
             </div>
             <div class="strmTitle">
                 <span class="title">{{localChannel.liveTitle}}</span>
@@ -23,12 +27,13 @@ export default {
     },
     data(){
         return {
-            localChannel: this.data
+            localChannel: this.data,
+            None:''
         }
     },
     methods:{
         replaceImageUrl(){ 
-            this.localChannel.liveImageUrl = this.data.liveImageUrl.replace('{type}', '480');
+            this.localChannel.liveImageUrl = this.data.liveImageUrl?.replace('{type}', '480');
         }
     },
     mounted(){
@@ -43,8 +48,15 @@ export default {
         height: 100%;
     }
 
-    .previewLiveBox > img {
+    .previewLiveBox > a {
+        display: block;
         width: 100%;
+    }
+
+    .previewLiveBox > a > img {
+        width: 100%;
+        height: 100%;
+
         border-radius: 20px;
 
         border: 1px solid gray;
@@ -53,16 +65,18 @@ export default {
     .infoLive {
         display: flex;
         height: 50px;
-        margin-top: 10px;
+        margin-top: 7px;
         align-items: center;
     }
 
     .strmImg {
-        width: 15%;
+        width: 50px;
+        height: 50px;
     }
 
     .strmImg > img {
         width: 100%;
+        height: 100%;
         border-radius: 40px;
     }
 
@@ -75,6 +89,10 @@ export default {
     .strmName {
         font-size: small;
     }
+
+    .title {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 799px) {
@@ -83,7 +101,7 @@ export default {
         height: 100%;
     }
 
-    .previewLiveBox > img {
+    .previewLiveBox > a > img {
         width: 100%;
         border-radius: 20px;
     }
@@ -91,7 +109,7 @@ export default {
     .infoLive {
         display: flex;
         height: 50px;
-        margin-top: 10px;
+        margin-top: 7px;
         align-items: center;
     }
 

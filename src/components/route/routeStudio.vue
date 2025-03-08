@@ -18,8 +18,7 @@ export default {
     padding-top: 50px;
     min-height: calc(100vh - 80px);
 
-    display: flex;
-    transform: translateY(10px);
-
-    width: 90%;}
+    margin: 0px 50px 0px 50px;
+    width: 100%;
+}   
 </style>

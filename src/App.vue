@@ -1,15 +1,23 @@
 <template>
-  <topHeader></topHeader>
+  <topHeader :isLoggedIn='isLoggedIn'></topHeader>
+  <leftSideNav></leftSideNav>
   <router-view></router-view>
 </template>
 
 <script>
-import topHeader from './components/topHeader.vue'
+import topHeader from '@/components/navgation/topHeader.vue';
+import leftSideNav from '@/components/navgation/leftSideNav.vue';
+
+import {mapState} from 'vuex';
 
 export default {
   name: 'App',
   components: {
-    topHeader
+    topHeader,
+    leftSideNav
+  },
+  computed:{
+    ...mapState(['isLoggedIn'])
   }
 }
 </script>

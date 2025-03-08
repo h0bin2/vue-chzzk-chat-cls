@@ -12,6 +12,6 @@ export default {
 </script>
 <style scoped>
 span {
-    margin: 0px 50px;
+    margin: 0px 50px 10px 60px;
 }
 </style>

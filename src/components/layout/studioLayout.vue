@@ -1,9 +1,9 @@
 <template>
     <div class="studio-layout">
         <div class="channel-profile">
-            <hrefButton class="channel-image" href="profile" size="110" filename="anonymous.png" isOnline='true'></hrefButton>
+            <hrefButton class="channel-image" href="" size="110" filename="anonymous.png" isOnline='true'></hrefButton>
             <div class="channel-info">
-                <subTitle title="이강원" fontWeight="40"></subTitle>
+                <subTitle class="channelName" title="이강원" fontWeight="40"></subTitle>
                 <a class='chzzk-link' href="#">치지직 보기 ></a>
             </div>
         </div>
@@ -13,7 +13,7 @@
     </div>
 </template>
 <script>
-import hrefButton from '@/common/hrefButton.vue'
+import hrefButton from '@/common/aImgTag.vue'
 import subTitle from '@/common/subTitle.vue'
 import categoryNav from '@/common/categoryNav.vue';
 
@@ -27,7 +27,7 @@ export default {
 }
 </script>
 <style scoped>
-@media screen and (min-width:800px) {
+@media screen and (min-width:1000px) {
     .studio-layout {
         display: flex;
         flex-direction: column;
@@ -45,7 +45,7 @@ export default {
     }
 
     .channel-info {
-        width: 100%;
+        width: 80%;
         height: 100%;
 
         display: flex;
@@ -59,9 +59,47 @@ export default {
 
         margin: 5px 20px;
     }
+
+    .channelName {
+        margin-left: 20px !important;
+    }
 }
 
-@media screen and (max-width: 799px) {
-    
+@media screen and (max-width: 1000px) {
+    .studio-layout {
+        display: flex;
+        flex-direction: column;
+
+        width:100%;
+        height: 100%;
+    }
+
+    .channel-profile {
+        width: 100%;
+        height: 160px;
+
+        display: flex;
+        align-items: center;
+    }
+
+    .channel-info {
+        width: 80%;
+        height: 100%;
+
+        display: flex;
+        flex-direction:column;
+        justify-content:center;
+    }
+
+    .chzzk-link {
+        color: gray;
+        text-decoration:none;
+
+        margin: 5px 20px;
+    }
+
+    .channelName {
+        margin-left: 20px !important;
+    }
 }
 </style>
